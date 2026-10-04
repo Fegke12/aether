@@ -40,7 +40,7 @@ Three home screen widget sizes built with Glance:
 | Storage | DataStore Preferences |
 | Location | Google Play Services Location |
 | Splash | AndroidX Core-SplashScreen |
-| Weather API | OpenWeather |
+| Weather API | Open-Meteo |
 
 **minSdk** 26 (Android 8.0) · **targetSdk** 36
 
@@ -52,6 +52,20 @@ Three home screen widget sizes built with Glance:
 
 Location is used solely for weather requests and is never shared with third parties.
 
+## Code Samples
+
+The full project is closed, but a few self-contained parts are published in [`samples/`](samples) to show how the app is built. They are real files from the app, unchanged, and they don't compile on their own.
+
+| What | File | Notes |
+|------|------|-------|
+| Weather effects | [`ui/effects/`](samples/ui/effects) | Rain, snow, stars, sun and thunder drawn on a Compose `Canvas`, driven by `withFrameNanos`. Tap the rain to make ripples. |
+| Effect switcher | [`WeatherEffects.kt`](samples/ui/effects/WeatherEffects.kt) | Picks the effect from the weather code and day/night. |
+| 24h chart | [`HourlyChart.kt`](samples/ui/charts/HourlyChart.kt) | Smooth line chart with a gradient fill, drawn by hand without a chart library. |
+| Dynamic background | [`WeatherPalette.kt`](samples/ui/theme/WeatherPalette.kt) | Gradient palette chosen by weather and time of day. |
+| Splash screen | [`AetherSplash.kt`](samples/ui/splash/AetherSplash.kt) | Animated launch screen. |
+| Home screen widget | [`WeatherWidgetWide.kt`](samples/widget/WeatherWidgetWide.kt) | The wide 4×2 widget built with Glance. |
+| Weather codes | [`WmoWeather.kt`](samples/data/model/WmoWeather.kt) | Maps Open-Meteo WMO codes to icons and descriptions. |
+
 ## License
 
-This repository is a showcase — source code is not included.
+This repository is a showcase. The files in `samples/` are published for reading only; the rest of the source code is not included.
